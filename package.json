@@ -1,0 +1,14 @@
+{
+  "name": "async-chain-proxy",
+  "version": "0.1.0",
+  "description": "async-chain-proxy enable to call member functions by method chains.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "yamada <yamada@enty.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.3.0"
+  }
+}
