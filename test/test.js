@@ -57,6 +57,16 @@ describe('chainProxy', _ => {
       done()
     })
   })
+  it('call onChainFinished after end()', (done) => {
+    let v = 100;
+    const obj  = chainProxy(new ForTest(), {onChainFinished: () => { v = 200; }})
+    let result = null
+    obj.echo('AAA').result(v => result = v).end().then(() => {
+      assert.equal('AAA', result)
+      assert.equal(200, v)
+      done()
+    })
+  })
 })
 
 

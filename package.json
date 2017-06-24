@@ -1,11 +1,16 @@
 {
   "name": "async-chain-proxy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "async-chain-proxy enable to call member functions by method chains.",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OnetapInc/async-chain-proxy.git"
+  },
+  "bugs": "https://github.com/OnetapInc/async-chain-porxy/issues",
   "author": "yamada <yamada@enty.jp>",
   "license": "MIT",
   "devDependencies": {

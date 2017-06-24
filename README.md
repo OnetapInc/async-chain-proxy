@@ -1,4 +1,4 @@
-async-chain-proxy provide method chain interfaces for accessing methods.
+async-chain-proxy provides method chain interfaces for accessing async methods.
 
 ## How to use
 
@@ -23,7 +23,7 @@ obj.foo().bar().end()
 >bar
 ```
 
-### receive return value
+### receive a return value
 
 ```js
 class A {
@@ -38,4 +38,15 @@ obj.foo().result((v) => console.log(v)).end()
 // output
 >foo
 ```
+
+### API
+
+#### constructor(target, options = {})
+
+##### options
+
+  - resultFuncName(default: 'result') : If you don't prefer result function name, you can change.
+  - endFuncName(default: 'end') : If you don't prefer end function name, you can change.
+  - onChainFinished(default: null) : this is a callback function that is called after end().
+
 

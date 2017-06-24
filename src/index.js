@@ -45,7 +45,12 @@ function makeHandler (target, options) {
     get: function (chainObj, name) {
       if (name === options.endFuncName) {
         return function () {
-          return chainObj.end(chainObj, arguments).catch((e) => {
+          return chainObj.end(chainObj, arguments).then(result => {
+            if (options.onChainFinished) {
+              options.onChainFinished(target)
+            }
+            return result
+          }).catch((e) => {
             if (options.debug) {
               console.log(e)
             }
@@ -75,7 +80,12 @@ function makeHandler (target, options) {
 }
 
 function createChainObject (target, options = {}) {
-  const defaultParams = {debug: false, resultFuncName: 'result', endFuncName: 'end'}
+  const defaultParams = {
+    debug: false,
+    resultFuncName: 'result',
+    endFuncName: 'end',
+    onChainFinished: null
+  }
   options = Object.assign(defaultParams, options)
   let chainObject = new ChainObject(target, options)
   return new Proxy(
