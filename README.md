@@ -49,4 +49,15 @@ obj.foo().result((v) => console.log(v)).end()
   - endFuncName(default: 'end') : If you don't prefer end function name, you can change.
   - onChainFinished(default: null) : this is a callback function that is called after end().
 
+#### result(r)
+
+This function is used for receiving result of previous action.
+
+#### end()
+
+Indicates end of chained actions. If you didn't call end(), all the actions aren't called.
+
+#### target
+
+Returns target object.
 

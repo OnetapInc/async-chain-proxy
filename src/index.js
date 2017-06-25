@@ -62,6 +62,8 @@ function makeHandler (target, options) {
           chainObj.addAction(RESULT_FUNCTION_NAME, arguments)
           return this
         }
+      } else if (name === 'target') {
+        return target
       } else if (typeof(target[name]) === 'function') {
         return function () {
           chainObj.addAction(name, arguments)
