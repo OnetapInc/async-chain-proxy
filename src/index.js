@@ -17,9 +17,11 @@ class ChainObject {
 
   async end () {
     let result = null
+    const actions = Object.assign({}, this.actions)
+    this.actions = []
     try {
-      for (let idx in this.actions) {
-        const action = this.actions[idx]
+      for (let idx in actions) {
+        const action = actions[idx]
         if (this.options.debug) {
           console.log(`[async-chain-proxy] execute '${action.name}'`)
         }
@@ -35,7 +37,6 @@ class ChainObject {
       }
       throw e
     }
-    this.actions = []
     return result
   }
 }

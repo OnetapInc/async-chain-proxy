@@ -20,6 +20,9 @@ class ForTest {
   async f3 () {
     this._value += '3'
   }
+  async throwError () {
+    throw new Error('error')
+  }
 }
 
 describe('chainProxy', _ => {
@@ -71,6 +74,20 @@ describe('chainProxy', _ => {
       assert.equal('AAA', result)
       assert.equal(200, v)
       done()
+    })
+  })
+  it('removes all actions if occured an exception.', (done) => {
+    let v = 0
+    const obj  = chainProxy(new ForTest())
+    obj.f1().throwError().f2().end().then(_ => {
+      done(new Error('error'))
+    }).catch(e => {
+      obj.end().then(() => {
+        assert.equal('1', obj.target.value())
+        done()
+      }).catch(e => {
+        done(e)
+      })
     })
   })
 })
