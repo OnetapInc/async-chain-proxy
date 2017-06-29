@@ -2,9 +2,11 @@
   "name": "async-chain-proxy",
   "version": "0.1.3",
   "description": "async-chain-proxy enable to call member functions by method chains.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha"
+    "pretest": "babel test --source-maps --out-dir test_dist",
+    "test": "mocha test_dist",
+    "build": "babel src --source-maps --out-dir dist --ignore '**/*.test.js'"
   },
   "repository": {
     "type": "git",
@@ -13,7 +15,13 @@
   "bugs": "https://github.com/OnetapInc/async-chain-porxy/issues",
   "author": "yamada <yamada@enty.jp>",
   "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-preset-es2015": "^6.24.1",
     "mocha": "^3.3.0"
   }
 }
