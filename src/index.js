@@ -1,4 +1,5 @@
 
+import 'babel-polyfill';
 const RESULT_FUNCTION_NAME = '___RESULT_FUNCTION'
 
 class ChainObject {

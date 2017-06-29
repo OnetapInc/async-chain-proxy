@@ -1,4 +1,4 @@
-const chainProxy = require('../src')
+const chainProxy = require('../dist')
 const assert = require('assert')
 
 class ForTest {
