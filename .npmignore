@@ -1,7 +1,9 @@
 test
 test_dist
 src
+node_modules
 .gitignore
 .idea
 .DS_Store
 .editorconfig
+package-lock.json
