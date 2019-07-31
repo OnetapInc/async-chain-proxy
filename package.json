@@ -1,6 +1,6 @@
 {
   "name": "async-chain-proxy",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "async-chain-proxy enable to call member functions by method chains.",
   "main": "dist/index.js",
   "scripts": {
